@@ -10,6 +10,7 @@ import { UsersController } from './presentation/controllers/users.controller';
 import { ProductsController } from './presentation/controllers/products.controller';
 import { OrdersController } from './presentation/controllers/orders.controller';
 import { LoginUserUseCase } from './domain/use-cases/auth/login-user.use-case';
+import { RegisterUserUseCase } from './domain/use-cases/auth/register-user.use-case';
 import { UserRepository } from './infrastructure/repositories/user.repository';
 import { ProductRepository } from './infrastructure/repositories/product.repository';
 import { OrderRepository } from './infrastructure/repositories/order.repository';
@@ -68,6 +69,7 @@ import { DatabaseSeed } from './infrastructure/database/seeds/database.seed';
   providers: [
     AppService,
     LoginUserUseCase,
+    RegisterUserUseCase,
     JwtStrategy,
     {
       provide: INJECTION_TOKENS.USER_REPOSITORY,
