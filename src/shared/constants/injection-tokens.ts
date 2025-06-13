@@ -1,0 +1,10 @@
+export const INJECTION_TOKENS = {
+  // Repositories
+  USER_REPOSITORY: Symbol('USER_REPOSITORY'),
+  PRODUCT_REPOSITORY: Symbol('PRODUCT_REPOSITORY'),
+  ORDER_REPOSITORY: Symbol('ORDER_REPOSITORY'),
+  
+  // Services
+  PASSWORD_SERVICE: Symbol('PASSWORD_SERVICE'),
+  JWT_SERVICE: Symbol('JWT_SERVICE'),
+} as const;
