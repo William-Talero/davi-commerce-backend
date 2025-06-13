@@ -61,6 +61,7 @@ export class ProductsController {
         createProductDto.imageUrl || '',
         createProductDto.category || '',
         createProductDto.stock,
+        createProductDto.lowStockThreshold || 5,
       );
 
       return await this.productRepository.create(product);
