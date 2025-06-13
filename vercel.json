@@ -1,12 +1,5 @@
 {
   "version": 2,
-  "env": {
-    "DATABASE_URL": "@DATABASE_URL",
-    "JWT_SECRET": "@JWT_SECRET",
-    "NODE_ENV": "@NODE_ENV",
-    "PORT": "@PORT",
-    "FRONTEND_URL": "@FRONTEND_URL"
-  },
   "builds": [
     {
       "src": "src/main.ts",
