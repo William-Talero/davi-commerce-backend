@@ -51,6 +51,30 @@ export class OrdersController {
     }
   }
 
+  @Get('user/:userId')
+  @UseGuards(AuthGuard('jwt'))
+  async getOrdersByUserId(@Param('userId') userId: string, @Request() req) {
+    try {
+      // Only allow users to access their own orders, or admins to access any orders
+      if (req.user.id !== userId && req.user.role !== 'admin') {
+        throw new HttpException(
+          'Unauthorized access to user orders',
+          HttpStatus.FORBIDDEN,
+        );
+      }
+
+      return await this.orderRepository.findByUserId(userId);
+    } catch (error) {
+      if (error instanceof HttpException) {
+        throw error;
+      }
+      throw new HttpException(
+        'Failed to fetch user orders',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
+  }
+
   @Get(':id')
   @UseGuards(AuthGuard('jwt'))
   async getOrderById(@Param('id') id: string, @Request() req) {
